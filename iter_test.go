@@ -88,8 +88,8 @@ func TestIterMap(t *testing.T) {
 	tadd("IntString", map[int]string{1: "a", 2: "b", 3: "c"})
 	tadd("StringString", map[string]string{"a": "1", "b": "2", "c": "3"})
 	tadd("IntInt", map[int]int{1: 1, 2: 2, 3: 3})
-	tadd("NestedMap", map[string]map[int]int{"m1": map[int]int{1: 2, 3: 4}, "m2": map[int]int{3: 4, 5: 6}})
-	tadd("NestedSlice", map[string][]int{"m1": []int{1: 2, 3: 4}, "m2": []int{3: 4, 5: 6}})
+	tadd("NestedMap", map[string]map[int]int{"m1": {1: 2, 3: 4}, "m2": {3: 4, 5: 6}})
+	tadd("NestedSlice", map[string][]int{"m1": {1: 2, 3: 4}, "m2": {3: 4, 5: 6}})
 	tadd("Empty", make(map[int]int))
 	tadd("NilMap", (map[int]int)(nil))
 
@@ -193,8 +193,8 @@ func TestIterSlice(t *testing.T) {
 	tadd("IntsArr", [3]int{1, 2, 3})
 	tadd("Strings", []string{"a", "b", "c"})
 	tadd("StringsArr", [3]string{"a", "b", "c"})
-	tadd("StringsJagged", [][]string{[]string{"a", "b", "c"}, []string{"d", "e", "f"}})
-	tadd("StringsArrJagged", [2][3]string{[3]string{"a", "b", "c"}, [3]string{"d", "e", "f"}})
+	tadd("StringsJagged", [][]string{{"a", "b", "c"}, {"d", "e", "f"}})
+	tadd("StringsArrJagged", [2][3]string{{"a", "b", "c"}, {"d", "e", "f"}})
 
 	tadd("Empty", []int{})
 	tadd("EmptyArr", [0]int{})
