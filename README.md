@@ -1,10 +1,10 @@
 # Go Package: iter
 
-  <a href="https://goreportcard.com/badge/github.com/cstockton/go-iter"><img src="https://img.shields.io/badge/%20docs-reference-5272B4.svg?style=flat-square"></a> [![Go Report Card](https://goreportcard.com/badge/github.com/cstockton/go-iter)](https://goreportcard.com/report/github.com/cstockton/go-iter)
+  <a href="https://godoc.org/github.com/cstockton/go-iter"><img src="https://img.shields.io/badge/%20docs-reference-5272B4.svg?style=flat-square"></a> [![Go Report Card](https://goreportcard.com/badge/github.com/cstockton/go-iter)](https://goreportcard.com/report/github.com/cstockton/go-iter)
 
   > Get:
   > ```bash
-  > go get -u github.com/cstockton/go-conv
+  > go get -u github.com/cstockton/go-iter
   > ```
   >
   > Example:
