@@ -2,7 +2,15 @@ package iter
 
 import "reflect"
 
-// Walk will visit each member of the given value using the default walker.
+// Walk will recursively walk the given interface value as long as an error does
+// not occur. The pair func will be given a interface value for each value
+// visited during walking and is expected to return an error if it thinks the
+// traversal should end. A nil value and error is given to the walk func if an
+// inaccessible value (can't reflect.Interface()) is found.
+//
+// Walk is called on each element of maps, slices and arrays. If the underlying
+// iterator is configured for channels it receives until one fails. Channels
+// should probably be avoided as ranging over them is more concise.
 func Walk(value interface{}, f func(el Pair) error) error {
 	return defaultWalker.Walk(value, f)
 }
