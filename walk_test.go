@@ -14,7 +14,7 @@ type TestTree struct {
 }
 
 func (t *TestTree) Walk(parent Pair, f func(el Pair) error) error {
-	return f(NewPair(parent, "foo", "bar"))
+	return f(NewPair(parent, "foo", "bar", nil))
 }
 
 func newTestTree() *TestTree {

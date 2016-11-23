@@ -19,7 +19,7 @@ func TestPair(t *testing.T) {
 	}
 	rk := "rkey"
 	rv := "rval"
-	root := NewPair(nil, rk, rv)
+	root := NewPair(nil, rk, rv, nil)
 	tok(t, root)
 
 	t.Run("String", func(t *testing.T) {
@@ -34,7 +34,7 @@ func TestPair(t *testing.T) {
 			Str string
 		}
 		typ := reflect.TypeOf(tstruct{"foo"})
-		pr := NewPair(nil, typ.Field(0), "foo")
+		pr := NewPair(nil, typ.Field(0), "foo", nil)
 		exp := `Pair{(reflect.StructField) Str => foo (string)}`
 		if got := fmt.Sprintf("%v", pr); got != exp {
 			t.Errorf("String() failed:\n  exp: %#v\n  got: %#v", exp, got)
@@ -61,7 +61,7 @@ func TestPair(t *testing.T) {
 
 	t.Run("Parent", func(t *testing.T) {
 		k := "key"
-		pr := NewPair(root, k, nil)
+		pr := NewPair(root, k, nil, nil)
 		if got := pr.Parent(); !reflect.DeepEqual(root, got) {
 			t.Errorf("DeepEqual failed pr.Parent():\n  exp: %#v\n  got: %#v", k, got)
 		}
@@ -71,7 +71,7 @@ func TestPair(t *testing.T) {
 		exp := 100
 		var root Pair
 		for i := 0; i <= exp; i++ {
-			root = NewPair(root, i, fmt.Sprintf("Val%d", i))
+			root = NewPair(root, i, fmt.Sprintf("Val%d", i), nil)
 			tok(t, root)
 			if got := root.Depth(); got != i {
 				t.Errorf("failed pr.Depth():\n  exp: %#v\n  got: %#v", i, got)
@@ -84,7 +84,7 @@ func TestPair(t *testing.T) {
 
 	t.Run("Key", func(t *testing.T) {
 		k := "key"
-		pr := NewPair(nil, k, nil)
+		pr := NewPair(nil, k, nil, nil)
 		if got := pr.Key(); !reflect.DeepEqual(k, got) {
 			t.Errorf("DeepEqual failed pr.Key():\n  exp: %#v\n  got: %#v", k, got)
 		}
@@ -92,7 +92,7 @@ func TestPair(t *testing.T) {
 
 	t.Run("Value", func(t *testing.T) {
 		v := "val"
-		pr := NewPair(nil, v, nil)
+		pr := NewPair(nil, v, nil, nil)
 		if got := pr.Key(); !reflect.DeepEqual(v, got) {
 			t.Errorf("DeepEqual failed pr.Val():\n  exp: %#v\n  got: %#v", v, got)
 		}

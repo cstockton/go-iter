@@ -72,11 +72,12 @@ type pair struct {
 }
 
 // NewPair returns a new key-value pair to be used by Walkers.
-func NewPair(parent Pair, key, value interface{}) Pair {
+func NewPair(parent Pair, key, value interface{}, err error) Pair {
 	return &pair{
 		key: key,
 		val: value,
 		pnt: parent,
+		err: err,
 	}
 }
 
